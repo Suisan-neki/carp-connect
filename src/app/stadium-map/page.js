@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 export default function StadiumMap() {
+  // .envファイルに設定したAPIキーを環境変数から取得
+  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
   return (
     <Layout>
       {/* ヘッダーセクション */}
@@ -21,7 +24,7 @@ export default function StadiumMap() {
             <h2 className="text-2xl font-bold mb-4">マツダスタジアム周辺マップ</h2>
             <div className="aspect-video rounded-lg overflow-hidden mb-4">
               {/* Google Maps API統合 */}
-              <LoadScript googleMapsApiKey="YOUR_API_KEY">
+              <LoadScript googleMapsApiKey={googleMapsApiKey}>
                 <GoogleMap
                   mapContainerStyle={{ width: '100%', height: '400px' }}
                   center={{ lat: 34.3917, lng: 132.4837 }} // マツダスタジアムの座標
