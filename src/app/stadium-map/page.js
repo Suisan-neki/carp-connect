@@ -1,5 +1,7 @@
 import Layout from '../../components/layout/Layout';
 import Link from 'next/link';
+// Google Maps APIのインポート
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 export default function StadiumMap() {
   return (
@@ -17,9 +19,17 @@ export default function StadiumMap() {
         <div className="container mx-auto px-4">
           <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
             <h2 className="text-2xl font-bold mb-4">マツダスタジアム周辺マップ</h2>
-            <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center mb-4">
-              {/* ここに実際の地図を表示 */}
-              <p className="text-gray-500">地図が表示されます（実装時に地図APIを統合）</p>
+            <div className="aspect-video rounded-lg overflow-hidden mb-4">
+              {/* Google Maps API統合 */}
+              <LoadScript googleMapsApiKey="YOUR_API_KEY">
+                <GoogleMap
+                  mapContainerStyle={{ width: '100%', height: '400px' }}
+                  center={{ lat: 34.3917, lng: 132.4837 }} // マツダスタジアムの座標
+                  zoom={15}
+                >
+                  <Marker position={{ lat: 34.3917, lng: 132.4837 }} />
+                </GoogleMap>
+              </LoadScript>
             </div>
             <p className="text-gray-600 mb-4">
               マツダスタジアムは広島市南区南蟹屋2-3-1に位置し、JR広島駅から徒歩約15分、広島電鉄「猿猴橋町」電停から徒歩約10分の場所にあります。
