@@ -11,7 +11,54 @@ export default function StadiumMap() {
           <p className="text-lg md:text-xl mb-6">マツダスタジアム周辺の詳細マップと混雑回避ルート</p>
         </div>
       </section>
-      
+
+      {/* 主な機能セクション */}
+      <section className="py-12">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-8">主な機能</h2>
+          <div className="space-y-8">
+            {/* スタジアムマップ */}
+            <Link href="/stadium-map">
+              <div className="flex items-center space-x-4 cursor-pointer">
+                <div className="icon">
+                  <i className="fas fa-map-marked-alt text-3xl"></i> {/* アイコンを設定 */}
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold">スタジアムマップ</h3>
+                  <p className="text-gray-600">マツダスタジアム周辺の詳細マップと混雑回避ルートを提供します。</p>
+                </div>
+              </div>
+            </Link>
+
+            {/* 球場ルールガイド */}
+            <Link href="/stadium-rules">
+              <div className="flex items-center space-x-4 cursor-pointer">
+                <div className="icon">
+                  <i className="fas fa-clipboard text-3xl"></i> {/* アイコンを設定 */}
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold">球場ルールガイド</h3>
+                  <p className="text-gray-600">多言語対応の球場ルールと持ち込み制限の視覚的な説明を提供します。</p>
+                </div>
+              </div>
+            </Link>
+
+            {/* カープツーリズム */}
+            <Link href="/carp-tourism">
+              <div className="flex items-center space-x-4 cursor-pointer">
+                <div className="icon">
+                  <i className="fas fa-globe text-3xl"></i> {/* アイコンを設定 */}
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold">カープツーリズム</h3>
+                  <p className="text-gray-600">カープを入口として広島の新たな魅力発見と体験を提供します。</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* 静的な地図表示セクション */}
       <section className="py-12">
         <div className="container mx-auto px-4">
@@ -62,7 +109,7 @@ export default function StadiumMap() {
           </div>
         </div>
       </section>
-      
+
       {/* CTAセクション */}
       <section className="py-12">
         <div className="container mx-auto px-4 text-center">
@@ -76,3 +123,4 @@ export default function StadiumMap() {
     </Layout>
   );
 }
+
