@@ -1,12 +1,7 @@
 import Layout from '../../components/layout/Layout';
 import Link from 'next/link';
-// Google Maps APIのインポート
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 export default function StadiumMap() {
-  // .envファイルに設定したAPIキーを環境変数から取得
-  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-
   return (
     <Layout>
       {/* ヘッダーセクション */}
@@ -17,54 +12,31 @@ export default function StadiumMap() {
         </div>
       </section>
       
-      {/* マップセクション */}
+      {/* 静的な地図表示セクション */}
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
             <h2 className="text-2xl font-bold mb-4">マツダスタジアム周辺マップ</h2>
             <div className="aspect-video rounded-lg overflow-hidden mb-4">
-              {/* Google Maps API統合 */}
-              <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
-                <GoogleMap
-                  mapContainerStyle={{ width: '100%', height: '400px' }}
-                  center={{ lat: 34.3917, lng: 132.4837 }} // マツダスタジアムの座標
-                  zoom={15}
-                >
-                  <Marker position={{ lat: 34.3917, lng: 132.4837 }} />
-                </GoogleMap>
-              </LoadScript>
+              {/* 静的な地図 */}
+              <iframe
+                title="Mazda Stadium Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.208444188295!2d132.48073831533744!3d34.385601780451775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355f16d0470a6341%3A0x2446581d7437f9f7!2z44CSMzQwLTAwODgg5aSx5bGx5Yy65bqB!5e0!3m2!1sja!2sjp!4v1633155592005!5m2!1sja!2sjp"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+              ></iframe>
             </div>
             <p className="text-gray-600 mb-4">
               マツダスタジアムは広島市南区南蟹屋2-3-1に位置し、JR広島駅から徒歩約15分、広島電鉄「猿猴橋町」電停から徒歩約10分の場所にあります。
               周辺には複数の駐車場やアクセス経路があります。
             </p>
           </div>
-          
-          {/* 混雑回避ルートセクション */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-bold mb-3 text-carp-red">試合日の混雑回避ルート</h3>
-              <ul className="list-disc pl-5 space-y-2 text-gray-600">
-                <li>JR広島駅からの徒歩ルート（約15分）：南口を出て猿猴橋を渡り、京橋川沿いを南下</li>
-                <li>広島電鉄利用：「猿猴橋町」電停下車、徒歩約10分</li>
-                <li>バス利用：広島バス「マツダスタジアム」バス停下車すぐ</li>
-                <li>車利用：試合日は周辺が混雑するため、広島駅周辺の駐車場の利用をおすすめ</li>
-              </ul>
-            </div>
-            
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-xl font-bold mb-3 text-carp-red">周辺施設情報</h3>
-              <ul className="list-disc pl-5 space-y-2 text-gray-600">
-                <li>飲食店：スタジアム周辺には多数のカープファン向け飲食店があります</li>
-                <li>コンビニ：スタジアム近くにローソン、セブンイレブンがあります</li>
-                <li>駐車場：マツダスタジアム東駐車場、西駐車場（要予約）</li>
-                <li>トイレ：スタジアム内各所に設置</li>
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
-      
+
       {/* 試合日情報セクション */}
       <section className="py-12 bg-gray-100">
         <div className="container mx-auto px-4">
