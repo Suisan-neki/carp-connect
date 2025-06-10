@@ -1,13 +1,12 @@
-import dynamic from 'next/dynamic';
 import Layout from '../../components/layout/Layout';
 import Link from 'next/link';
-
-// Google Maps APIを動的にインポート（SSRを無効化）
-const DynamicGoogleMap = dynamic(() => import('@react-google-maps/api'), {
-  ssr: false, // サーバーサイドレンダリングを無効化
-});
+// Google Maps APIのインポート
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 export default function StadiumMap() {
+  // .envファイルに設定したAPIキーを環境変数から取得
+  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
   return (
     <Layout>
       {/* ヘッダーセクション */}
@@ -24,17 +23,16 @@ export default function StadiumMap() {
           <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
             <h2 className="text-2xl font-bold mb-4">マツダスタジアム周辺マップ</h2>
             <div className="aspect-video rounded-lg overflow-hidden mb-4">
-              {/* 動的にGoogle Mapをレンダリング */}
-              <DynamicGoogleMap>
+              {/* Google Maps API統合 */}
+              <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}>
                 <GoogleMap
-                  googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
                   mapContainerStyle={{ width: '100%', height: '400px' }}
                   center={{ lat: 34.3917, lng: 132.4837 }} // マツダスタジアムの座標
                   zoom={15}
                 >
                   <Marker position={{ lat: 34.3917, lng: 132.4837 }} />
                 </GoogleMap>
-              </DynamicGoogleMap>
+              </LoadScript>
             </div>
             <p className="text-gray-600 mb-4">
               マツダスタジアムは広島市南区南蟹屋2-3-1に位置し、JR広島駅から徒歩約15分、広島電鉄「猿猴橋町」電停から徒歩約10分の場所にあります。
