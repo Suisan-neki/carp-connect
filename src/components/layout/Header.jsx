@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="bg-carp-red text-white shadow-md">
+    <header className="fixed top-0 left-0 right-0 bg-carp-red text-white shadow-md z-50">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <Link href="/" className="flex items-center space-x-2">
           <span className="font-bold text-xl">カープコネクト</span>
@@ -24,7 +24,6 @@ export default function Header() {
         </nav>
         
         <div className="md:hidden">
-          {/* モバイルメニューボタン */}
           <button className="p-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
