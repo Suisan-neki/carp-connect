@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from 'react';
 
 export default function DetailedGameInfo() {
@@ -46,7 +47,7 @@ export default function DetailedGameInfo() {
     ],
     
     // バッテリー
-    awayBattery: { pitcher: "伊藤", catcher: "伏見" },
+    awayBattery: { pitcher: "伊藤 ", catcher: "伏見" },
     homeBattery: { pitcher: "森下", catcher: "石原" }
   });
 
