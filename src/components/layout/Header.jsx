@@ -8,29 +8,25 @@ export default function Header() {
           <span className="font-bold text-xl">カープコネクト</span>
         </Link>
         
-        <nav className="hidden md:flex space-x-6">
-          <Link href="/" className="hover:text-carp-light-red transition">
+        {/* ナビゲーションメニュー - hidden md:flex を flex に変更 */}
+        <nav className="flex space-x-6">
+          <Link href="/" className="hover:text-red-200 transition">
             ホーム
           </Link>
-          <Link href="/stadium-map" className="hover:text-carp-light-red transition">
+          <Link href="/stadium-map" className="hover:text-red-200 transition">
             スタジアムマップ
           </Link>
-          <Link href="/rules" className="hover:text-carp-light-red transition">
+          <Link href="/rules" className="hover:text-red-200 transition">
             球場ルール
           </Link>
-          <Link href="/tourism" className="hover:text-carp-light-red transition">
+          <Link href="/tourism" className="hover:text-red-200 transition">
             カープツーリズム
           </Link>
         </nav>
         
-        <div className="md:hidden">
-          <button className="p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
+        {/* モバイルメニューボタンは一旦削除 */}
       </div>
     </header>
-   );
+  );
 }
+
